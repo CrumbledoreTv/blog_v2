@@ -1,0 +1,121 @@
+// out: ../css/style.css, sourcemap: true, compress: true
+
+@marge:2%;
+@color1: green; /*Bleu*/
+@colorhover : #073059;
+
+.container-fluid {
+  background-color: @color1;
+}
+
+.navbar .nav li a{
+  color: white;
+}
+
+.navbar .nav > li> a:hover{
+  color:white;
+  background-color:@colorhover ;
+}
+
+.navbar .nav > li.dropdown.open > a{
+  color:white;
+  background-color:@colorhover;
+}
+
+.navbar .nav .dropdown-menu li a {
+  color :@color1;
+  text-align: center;
+}
+
+nav img {
+  height: 100%;
+  width: 100%;
+}
+
+.alert-success {
+  text-align: center;
+  padding: @marge;
+}
+
+.alert-success button {
+  padding: 0.5%;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color:@color1;
+  border: 1px solid @color1;
+  border-radius: 7%;
+  color: white;
+}
+
+.alert-success button:hover {
+  background-color:@colorhover ;
+}
+
+h2{
+  color:@color1;
+}
+
+.well {
+
+  text-align: center;
+  padding: @marge;
+  margin-top:@marge;
+}
+
+.well img {
+  height: 50%;
+  overflow: hidden;
+  margin-top:@marge;
+  margin-bottom:@marge;
+}
+
+.well button {
+  margin-right: 1%;
+  float: right;
+  background-color:@color1;
+  border: 1px solid @color1;
+  padding:0.5%;
+  padding-left: 1%;
+  padding-right: 1%;
+  border-radius: 7%;
+  color: white;
+}
+
+.well button:hover {
+  background-color:@colorhover ;
+}
+
+.panel .panel-heading {
+  text-align: center;
+  background-color: @color1;
+  color: white;
+}
+
+.panel {
+  text-align: center;
+  width: 35%;
+  position: fixed;
+  margin: 3%;;
+}
+
+.panel:nth-last-of-type(2){
+  margin-top:21%;
+
+}
+
+.connexion {
+  margin-top: 7.6%;
+  margin-bottom: 7.6%;
+}
+
+form {
+  text-align: center;
+}
+
+footer {
+  color: white;
+  margin-top: @marge;
+  padding:1%;
+  background-color:@color1;
+  width:100%;
+}
