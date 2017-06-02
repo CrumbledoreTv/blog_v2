@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Post
 {
@@ -45,7 +46,7 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="updateAt", type="datetime")
+     * @ORM\Column(name="updateAt", type="datetime", nullable=true)
      */
     private $updateAt;
 
@@ -123,6 +124,15 @@ class Post
     }
 
     /**
+    * Gets triggered only on insert
+    * @ORM\PrePersist
+    */
+    public function onPrePersist()
+    {
+      $this->createAt = new \DateTime("now");
+    }
+
+    /**
      * Get createAt
      *
      * @return \DateTime
@@ -130,6 +140,15 @@ class Post
     public function getCreateAt()
     {
         return $this->createAt;
+    }
+
+    /**
+    * Gets triggered every time on update
+    * @ORM\PreUpdate
+    */
+    public function onPreUpdate()
+    {
+      $this->updateAt = new \DateTime("now");
     }
 
     /**
@@ -156,4 +175,3 @@ class Post
         return $this->updateAt;
     }
 }
-

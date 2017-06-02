@@ -13,9 +13,9 @@ class PostType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titre')->add('contenu')->add('createAt')->add('updateAt')        ;
+        $builder->add('titre')->add('contenu');
     }
-    
+
     /**
      * {@inheritdoc}
      */
