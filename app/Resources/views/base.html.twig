@@ -8,6 +8,7 @@
           <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
           <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+          <script src="https://use.fontawesome.com/5ae75527aa.js"></script>
       {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -30,17 +31,28 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{{ path('home_index') }}">Blog</a></li>
 
-              {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-              <li class="dropdown">
+              {% if is_granted("ROLE_ADMIN") %}
+              <li class=dropdown>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrateur <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a><img class="img-responsive" src="{{ asset('assets/img/placeholder.jpg') }}" alt="avatar"/></a></li>
+                <li><a><img class="img-responsive" src="{{ asset('assets/img/placeholder.jpg') }}" alt=""/></a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="{{ path('post_index') }}">Parametres</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
               </ul>
-            </li>
+              <Li>
+              {% elseif is_granted("ROLE_USER") %}
+                <li class=dropdown>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ app.user.username }} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a><img class="img-responsive" src="{{ asset('assets/img/placeholder.jpg') }}" alt=""/></a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{ path('fos_user_profile_edit') }}">Parametres</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                  </ul>
+                <li>
               {% else %}
                   <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
                   <li><a href="{{ path('fos_user_registration_register') }}">S'enregistrer</a></li>

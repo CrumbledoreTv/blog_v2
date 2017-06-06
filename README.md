@@ -10,6 +10,4 @@ $ php bin/console doctrine:schema:create
 
 $ php bin/console doctrine:fixtures:load
 
-$ php bin/console faker:populate
-
 $ php bin/console server:start
