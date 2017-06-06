@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Blog</title>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}" media="screen" title="no title">
+        <script type="text/javascript" src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="https://use.fontawesome.com/5ae75527aa.js"></script>
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" media="screen" title="no title">
+
+    </head>
+    <body>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ path('post_index') }}">Blog</a></li>
+              {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administrateur <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a><img src="{{ asset('assets/img/placeholder.jpg') }}" alt=""/></a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Parametres</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Deconnexion</a></li>
+              </ul>
+              <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+              {% else %}
+                  <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+              {% endif %}
+              <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Visiteur<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Deconnexion</a></li>
+                </ul>
+              </li> -->
+              <!-- <li class="dropdown">
+              </li> -->
+                  <!-- <li><a href="#">Se connecter</a></li>
+                  <li><a href="#">S'enregistrer</a></li> -->
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <!-- ************************************************************************************
+      ************************************************************************************
+      ************************************************************************************ -->
+
+      <div class="container">
+        <div class="row">
+
+          {% if app.request.hasPreviousSession %}
+              {% for type, messages in app.session.flashbag.all() %}
+                  {% for message in messages %}
+                      <div class="flash-{{ type }}">
+                          {{ message }}
+                      </div>
+                  {% endfor %}
+              {% endfor %}
+          {% endif %}
+
+          <div>
+              {% block fos_user_content %}
+              {% endblock fos_user_content %}
+          </div>
+
+      </div><!--Row -->
+      </div><!--container-->
+
+      <footer> copiryght </footer>
+
+    </body>
+</html>
