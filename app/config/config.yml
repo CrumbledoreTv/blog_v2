@@ -81,6 +81,7 @@ vich_uploader:
         avatars_image:
             uri_prefix:         /images/avatars
             upload_destination: '%kernel.root_dir%/../web/assets/img/avatars'
+
         articles_image:
               uri_prefix:         /images/articles
               upload_destination: '%kernel.root_dir%/../web/assets/img/articles'
