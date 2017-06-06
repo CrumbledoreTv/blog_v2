@@ -1,8 +1,12 @@
 // out: ../css/style.css, sourcemap: true, compress: true
 
 @marge:2%;
-@color1: #3E6B89; /*Bleu*/
-@colorhover : #073059;
+@color1: green; /*Bleu*/
+@colorhover :#094D04;
+
+body {
+  background-color:#DCDCDC!important;
+}
 
 .container-fluid {
   background-color: @color1;
@@ -28,15 +32,16 @@
 }
 
 nav img {
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: 100%;
 }
-.alert-info {
+
+.alert-success {
   text-align: center;
   padding: @marge;
 }
 
-.alert-info button {
+.alert-success button {
   padding: 0.5%;
   padding-left: 1%;
   padding-right: 1%;
@@ -46,7 +51,7 @@ nav img {
   color: white;
 }
 
-.alert-info button:hover {
+.alert-success button:hover {
   background-color:@colorhover ;
 }
 
@@ -67,6 +72,10 @@ h2{
   margin-bottom:@marge;
 }
 
+.well i {
+  font-size: 10px;
+}
+
 .well button {
   margin-right: 1%;
   float: right;
@@ -83,20 +92,26 @@ h2{
   background-color:@colorhover ;
 }
 
-.panel {
+.panel .panel-heading {
   text-align: center;
-}
-
-.panel button {
-  background-color:@color1;
-  border: 1px solid @color1;
-  padding:0.5%;
-  border-radius: 7%;
+  background-color: @color1;
   color: white;
 }
 
-.panel button:hover{
-  background-color:@colorhover ;
+.panel {
+  text-align: center;
+  width: 35%;
+  position: fixed;
+  margin: 3%;;
+}
+
+.panel:nth-last-of-type(2){
+  margin-top:21%;
+}
+
+.panel a {
+  color: @color1;
+  text-decoration: underline;
 }
 
 .connexion {
