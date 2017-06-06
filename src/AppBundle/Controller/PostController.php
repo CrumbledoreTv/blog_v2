@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Post controller.
@@ -29,6 +30,17 @@ class PostController extends Controller
 
         return $this->render('post/index.html.twig', array(
             'posts' => $posts,
+        ));
+    }
+
+    public function OrderAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $order = $em->getRepository('AppBundle:Post')
+        ->findAllOrderedByDate();
+
+        return $this->render('home/index.html.twig', array(
+          'order' => $order,
         ));
     }
 

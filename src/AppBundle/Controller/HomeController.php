@@ -31,4 +31,17 @@ class HomeController extends Controller
             'posts' => $posts,
         ));
     }
+
+    /**
+     * Finds and displays a post entity.
+     *
+     * @Route("/{id}", name="home_show")
+     * @Method("GET")
+     */
+    public function showAction(Post $post)
+    {
+        return $this->render('home/show.html.twig', array(
+            'post' => $post,
+        ));
+    }
 }
