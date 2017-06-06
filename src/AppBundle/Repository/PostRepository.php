@@ -10,12 +10,4 @@ namespace AppBundle\Repository;
  */
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
-  public function findAllOrderedByDate()
-{
-    return $this->getEntityManager()
-        ->createQuery(
-            'SELECT * FROM AppBundle:Post ORDER BY createAt DESC LIMIT 3'
-        )
-        ->getResult();
-}
 }
