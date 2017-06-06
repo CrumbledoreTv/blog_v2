@@ -1,8 +1,10 @@
 // out: ../css/style.css, sourcemap: true, compress: true
 
 @marge:2%;
-@color1: green; /*Bleu*/
+@color1: green;
 @colorhover :#094D04;
+@twitter : #1B95E0;
+@facebook: #365899;
 
 body {
   background-color:#DCDCDC!important;
@@ -17,7 +19,7 @@ body {
   text-transform: lowercase;
 }
 
-.navbar .nav li a:first-letter{
+.navbar .nav  li a:first-letter {
 text-transform: capitalize;
 }
 
@@ -61,16 +63,11 @@ nav img {
 }
 
 h2{
-  text-transform: lowercase;
   color:@color1;
 }
 
-h2:first-letter{
-text-transform: capitalize;
-}
-
-
 .well {
+  position:relative;
   text-align: center;
   padding: @marge;
   margin-top:@marge;
@@ -113,16 +110,33 @@ text-transform: capitalize;
   text-align: center;
   width: 35%;
   position: fixed;
-  margin: 3%;;
+  margin: 3%;
 }
 
-.panel:nth-last-of-type(2){
-  margin-top:21%;
+.panel:nth-of-type(2){
+  margin-top:20%;
 }
 
 .panel a {
   color: @color1;
-  text-decoration: underline;
+  text-decoration:underline;
+}
+.panel .reseausociaux{
+  text-decoration: none;
+}
+
+.facebook {
+  background-color:@facebook;
+  color: white;
+  border-color:@facebook;
+  border-radius: 2px;
+}
+
+.twitter {
+  background-color:@twitter;
+  color: white;
+  border-color:@twitter;
+  border-radius: 2px;
 }
 
 .connexion {
@@ -131,22 +145,20 @@ text-transform: capitalize;
 }
 
 #appbundle_post label {
-  width: 100%;
+ width: 100%;
 }
-#appbundle_post input {
 
-  text-align: center;
-  width: 50%;
+#appbundle_post input {  text-align: center;
+ width: 50%;
 margin-bottom: @marge;
 }
 
 #appbundle_post textarea {
-  text-align: center;
-  width: 50%;
-    resize: none;
-    margin-bottom: @marge;
-
-}
+ text-align: center;
+ width: 50%;
+   resize: none;
+   margin-bottom: @marge;
+ }
 
 form {
   text-align: center;
@@ -154,8 +166,7 @@ form {
 
 footer {
   color: white;
-  bottom: 0px;
-  position: relative;
+  bottom: 0;
   margin-top: @marge;
   padding:1%;
   background-color:@color1;

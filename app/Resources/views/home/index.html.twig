@@ -17,23 +17,35 @@
         {% endfor %}
       </div>
 
-    <div class="col-md-4">
-      <div class="panel panel-default">
-        <div class="panel-heading">A propos</div>
-        <div class="panel-body">
-          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco
-          laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
-        </div>
-      </div>
 
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">Les derniers articles</div>
         {% for order in posts %}
         <div class="panel-body"><a href="{{ path("home_show", {id: order.id}) }}">{{ order.titre }}</a></div>
         {% endfor %}
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-heading">A propos</div>
+        <div class="panel-body">
+          <p>
+            Infos Sports
+          </p>
+          <a class="reseausociaux" href="https://www.facebook.com/sharer/sharer.php?u=google.com">
+            <button type="button" name="button" class="facebook">
+              <i class="fa fa-facebook-square" aria-hidden="true"></i>
+              Partager
+            </button>
+          </a>
+
+          <a class="reseausociaux" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%2Fblog-v2-giovani%2F_index.php&ref_src=twsrc%5Etfw&text=Infos%20sport%20%3A&tw_p=tweetbutton&url=https://google.com">
+            <button class="twitter" type="button" name="button">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              Tweet</button>
+          </a>
+
+        </div>
       </div>
   </div>
 
