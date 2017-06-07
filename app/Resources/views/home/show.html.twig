@@ -9,6 +9,7 @@
       <h2 class="col-md-12"> {{ post.titre }} </h2>
       <img class="img-responsive col-md-6 col-md-offset-3" src="{{ asset('assets/img/articles/') ~ post.imageName }}" alt="image article" />
       <p class="col-md-12">{{ post.contenu }}</p>
+        <a href="{{ path('home_index') }}"> <button type="button"><i class="fa fa-undo" aria-hidden="true"></i> Retour</button></a>
     </div>
 
   </div><!--row-->
