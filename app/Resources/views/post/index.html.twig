@@ -23,7 +23,14 @@
         </div><!--Row -->
         </div><!--container-->
 
-
+        {% for message in app.session.flashBag.get('notice') %}
+            <div class="panel panel-success">
+            <div class="panel-heading">Message</div>
+                <div class="panel-body">
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+        {% endfor %}
 
 
 

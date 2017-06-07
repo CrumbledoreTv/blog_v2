@@ -24,28 +24,28 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=true)
      */
     private $nom;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom", type="string", length=255)
+     * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
      */
     private $prenom;
 
     /**
  * NOTE: This is not a mapped field of entity metadata, just a simple property.
  *
- * @Vich\UploadableField(mapping="articles_image", fileNameProperty="imageName", size="imageSize")
+ * @Vich\UploadableField(mapping="articles_image", fileNameProperty="imageName", size="imageSize", nullable=true)
  *
  * @var File
  */
 private $imageFile;
 
 /**
- * @ORM\Column(type="string", length=255)
+ * @ORM\Column(type="string", length=255, nullable=true)
  *
  * @var string
  */
