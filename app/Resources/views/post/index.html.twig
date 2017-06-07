@@ -15,7 +15,7 @@
             <a href="{{ path('post_edit', { 'id': post.id }) }}"> <button type="button" name="button"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier / <i class="fa fa-trash" aria-hidden="true"></i> Supprimer</button></a>
             <h2 class="col-md-12"> {{ post.titre }} </h2>
             <i class="col-md-12">*Publié le {% if post.createAt %}{{ post.createAt|date('d-m-Y') }}{% endif %}{% if post.updateAt %}, Modifié le {{ post.updateAt|date('d-m-Y') }}{% endif %}</i>
-            <img class="img-responsive col-md-6 col-md-offset-3"src="img/placeholder.png" alt="" />
+            <img class="img-responsive col-md-6 col-md-offset-3" src="{{ asset('assets/img/articles/') ~ post.imageName }}" alt="image article" />
             <p class="col-md-12">{{ post.contenu }}</p>
           </div>
           {% endfor %}

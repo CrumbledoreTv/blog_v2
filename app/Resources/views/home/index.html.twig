@@ -10,7 +10,7 @@
       <div class="well col-md-12">
           <h2> {{ post.titre }} </h2>
           <i class="col-md-12">*Publié le {% if post.createAt %}{{ post.createAt|date('d-m-Y') }}{% endif %}{% if post.updateAt %}, Modifié le {{ post.updateAt|date('d-m-Y') }}{% endif %}</i>
-          <img class="img-responsive col-md-6 col-md-offset-3" src="img/placeholder.png" alt="" />
+          <img class="img-responsive col-md-6 col-md-offset-3" src="{{ asset('assets/img/articles/') ~ post.imageName }}" alt="image article" />
           <p class="col-md-12">{{ post.contenu | length > 200 ? (post.contenu[:200] ~ '...') : post.contenu }}</p>
           <p class="col-md-12"><a href="{{ path('home_show', {id: post.id}) }}">Voir l'artcile</a></p>
         </div>
