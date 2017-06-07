@@ -82,14 +82,6 @@ vich_uploader:
             uri_prefix:         /images/avatars
             upload_destination: '%kernel.root_dir%/../web/assets/img/avatars'
 
-            inject_on_load:     false
-            delete_on_update:   true
-            delete_on_remove:   true
-
         articles_image:
               uri_prefix:         /images/articles
               upload_destination: '%kernel.root_dir%/../web/assets/img/articles'
-
-              inject_on_load:     false
-              delete_on_update:   true
-              delete_on_remove:   true

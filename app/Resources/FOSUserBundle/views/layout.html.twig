@@ -35,9 +35,9 @@
               <ul class="dropdown-menu">
                 <li><a><img class="img-responsive" src="{{ asset('assets/img/avatars/placeholder.jpg') }}" alt="avatars"/></a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="{{ path('post_index') }}">Parametres</a></li>
+                <li><a href="{{ path('post_index') }}">Paramétres</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
               </ul>
               <Li>
               {% elseif is_granted("ROLE_USER") %}
@@ -46,13 +46,13 @@
                   <ul class="dropdown-menu">
                     <li><a><img class="img-responsive" src="{{ asset('assets/img/avatars/placeholder.jpg') }}" alt="avatars"/></a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="{{ path('fos_user_profile_edit') }}">Parametres</a></li>
+                    <li><a href="{{ path('fos_user_profile_edit') }}">Paramétres</a></li>
                     <li role="separator" class="divider"></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}">{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
                   </ul>
                 <li>
               {% else %}
-                  <li><a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a></li>
+                  <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
               {% endif %}
             </ul>
           </div><!-- /.navbar-collapse -->
