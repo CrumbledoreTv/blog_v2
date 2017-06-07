@@ -52,17 +52,6 @@ class PostController extends Controller
         ));
     }
 
-    public function OrderAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $order = $em->getRepository('AppBundle:Post')
-        ->findAllOrderedByDate();
-
-        return $this->render('home/index.html.twig', array(
-          'order' => $order,
-        ));
-    }
-
     /**
      * Creates a new post entity.
      *

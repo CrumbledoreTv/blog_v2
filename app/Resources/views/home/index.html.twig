@@ -21,8 +21,8 @@
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">Les derniers articles</div>
-        {% for order in posts %}
-        <div class="panel-body"><a href="{{ path("home_show", {id: order.id}) }}">{{ order.titre }}</a></div>
+        {% for post in posts %}
+        <div class="panel-body"><a href="{{ path("home_show", {id: post.id}) }}">{{ post.titre }}</a></div>
         {% endfor %}
       </div>
 
