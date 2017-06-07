@@ -22,7 +22,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">Les derniers articles</div>
         {% for orderPost in orderPosts %}
-        <div class="panel-body"><a href="{{ path("home_show", {id: orderPost.id}) }}">{{ orderPost.titre }}</a></div>
+        <div class="panel-body"><a href="{{ path("home_show", {id: orderPost.id}) }}">{{ orderPost.titre }} - {{ orderPost.createAt|date('d-m-Y') }}</a></div>
         {% endfor %}
       </div>
 
