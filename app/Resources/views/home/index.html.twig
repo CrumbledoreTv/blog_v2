@@ -6,7 +6,7 @@
   <div class="row">
 
     <div class="col-md-7">
-      {% for post in posts %}
+      {% for post in orderPosts|sort %}
       <div class="well col-md-12">
           <h2> {{ post.titre }} </h2>
           <i class="col-md-12">*Publié le {% if post.createAt %}{{ post.createAt|date('d-m-Y') }}{% endif %}{% if post.updateAt %}, Modifié le {{ post.updateAt|date('d-m-Y') }}{% endif %}</i>
@@ -21,8 +21,8 @@
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">Les derniers articles</div>
-        {% for post in posts %}
-        <div class="panel-body"><a href="{{ path("home_show", {id: post.id}) }}">{{ post.titre }}</a></div>
+        {% for orderPost in orderPosts %}
+        <div class="panel-body"><a href="{{ path("home_show", {id: orderPost.id}) }}">{{ orderPost.titre }}</a></div>
         {% endfor %}
       </div>
 

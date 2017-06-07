@@ -14,38 +14,22 @@ use Doctrine\ORM\EntityManagerInterface;
  *
  * @Route("home")
  */
-class HomeController extends Controller
+class LastPostController extends Controller
 {
     /**
-     * Lists all post entities.
+     * Order all post entities.
      *
      * @Route("/", name="home_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexOrderAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $posts = $em->getRepository('AppBundle:Post')
-        ->findBy(
-                array('draft' => 'Mettre en ligne')
-              );
+        $orderPosts = $em->getRepository('AppBundle:Post')->findBy(array(), array('id' => 'DESC'));
 
         return $this->render('home/index.html.twig', array(
-            'posts' => $posts,
-        ));
-    }
-
-    /**
-     * Finds and displays a post entity.
-     *
-     * @Route("/{id}", name="home_show")
-     * @Method("GET")
-     */
-    public function showAction(Post $post)
-    {
-        return $this->render('home/show.html.twig', array(
-            'post' => $post,
+            'orderPosts' => $orderPosts,
         ));
     }
 }
