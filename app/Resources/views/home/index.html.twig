@@ -12,7 +12,7 @@
           <i class="col-md-12">*Publié le {% if post.createAt %}{{ post.createAt|date('d-m-Y') }}{% endif %}{% if post.updateAt %}, Modifié le {{ post.updateAt|date('d-m-Y') }}{% endif %}</i>
           <img class="img-responsive col-md-6 col-md-offset-3" src="img/placeholder.png" alt="" />
           <p class="col-md-12">{{ post.contenu | length > 200 ? (post.contenu[:200] ~ '...') : post.contenu }}</p>
-          <p><a href="{{ path('home_show', {id: post.id}) }}">Lire la suite</a></p>
+          <p class="col-md-12"><a href="{{ path('home_show', {id: post.id}) }}">Voir l'artcile</a></p>
         </div>
         {% endfor %}
       </div>
@@ -25,13 +25,14 @@
         <div class="panel-body"><a href="{{ path("home_show", {id: order.id}) }}">{{ order.titre }}</a></div>
         {% endfor %}
       </div>
-      
+
       <div class="panel panel-default">
         <div class="panel-heading">A propos</div>
         <div class="panel-body">
-          <p>
-            Infos Sports
-          </p>
+          <p> La nature est tout ce qu'on voit,<br>
+            tout ce qu'on veut, tout ce qu'on aime.<br>
+            Tout ce qu'on sait, tout ce qu'on croit,<br>
+            tout ce que l'on resent en sois même.</p>
           <a class="reseausociaux" href="https://www.facebook.com/sharer/sharer.php?u=google.com">
             <button type="button" name="button" class="facebook">
               <i class="fa fa-facebook-square" aria-hidden="true"></i>

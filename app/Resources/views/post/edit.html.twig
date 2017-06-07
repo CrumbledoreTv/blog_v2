@@ -9,18 +9,18 @@
       <a href="{{ path('post_index') }}"> <button type="button"><i class="fa fa-undo" aria-hidden="true"></i> Retour</button></a>
 </div>
 
-  <div class="well">
+  <div class="well col-md-12">
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Modifier" />
+        <input class="col-md-4 col-md-offset-4" type="submit" value="Modifier" /><br><br>
+        {% if post.draft == "Ajouter aux brouillons" %} <input class="col-md-4 col-md-offset-4" type="submit" id="appbundle_post_draft" name="appbundle_post[draft]" value="Mettre en ligne" /><br><br>{% else %} <input class="col-md-4 col-md-offset-4" type="submit" id="appbundle_post_draft" name="appbundle_post[draft]" value="Ajouter aux brouillons" /><br><br>{% endif %}
     {{ form_end(edit_form) }}
 
 
             {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
+                <input class="col-md-4 col-md-offset-4" type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
   </div>
-
 
   </div><!--Row -->
   </div><!--container-->

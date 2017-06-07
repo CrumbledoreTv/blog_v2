@@ -25,7 +25,10 @@ class HomeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $posts = $em->getRepository('AppBundle:Post')->findAll();
+        $posts = $em->getRepository('AppBundle:Post')
+        ->findBy(
+                array('draft' => 'Mettre en ligne')
+              );
 
         return $this->render('home/index.html.twig', array(
             'posts' => $posts,

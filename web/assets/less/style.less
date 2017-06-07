@@ -1,27 +1,37 @@
 // out: ../css/style.css, sourcemap: true, compress: true
 
+@font-face { font-family:Neuton-Bold;
+  src:url("../fonts/Neuton-Bold.ttf");
+}
+
+@font-face { font-family:Neuton-Light;
+  src:url("../fonts/Neuton-Regular.ttf");
+}
+
 @marge:2%;
-@color1: green;
+@color1:green;
 @colorhover :#094D04;
 @twitter : #1B95E0;
 @facebook: #365899;
+@font : Neuton-Bold;
+@font2 :Neuton-Light;
 
-body {
-  background-color:#DCDCDC!important;
-}
+html body {
+  background-image: url("../img/fond.jpg");
+  background-size: cover;}
 
 .container-fluid {
   background-color: @color1;
 }
 
-.navbar .nav li a{
-  color: white;
-  text-transform: lowercase;
+.navbar {
+  border: none;
 }
 
-.navbar .nav  li a:first-letter {
-text-transform: capitalize;
-}
+.navbar .nav li a{
+  color: white;
+  text-transform: capitalize;}
+
 
 .navbar .nav > li> a:hover{
   color:white;
@@ -64,10 +74,11 @@ nav img {
 
 h2{
   color:@color1;
+  font-family: @font;
+text-transform: capitalize;
 }
 
 .well {
-  position:relative;
   text-align: center;
   padding: @marge;
   margin-top:@marge;
@@ -78,6 +89,11 @@ h2{
   overflow: hidden;
   margin-top:@marge;
   margin-bottom:@marge;
+}
+
+.well p {
+text-transform: capitalize;
+font-family: @font2;
 }
 
 .well i {
@@ -100,31 +116,58 @@ h2{
   background-color:@colorhover ;
 }
 
+.well:last-of-type{
+  margin-bottom: 12%;
+}
+
 .panel .panel-heading {
+  font-family: @font;
+  font-size: 20px;
   text-align: center;
   background-color: @color1;
   color: white;
 }
 
 .panel {
+  height: 32%;
+  overflow: hidden;
   text-align: center;
   width: 35%;
   position: fixed;
-  margin: 3%;
 }
 
 .panel:nth-of-type(2){
   margin-top:20%;
 }
 
+
 .panel a {
+  text-transform:capitalize;
   color: @color1;
   text-decoration:underline;
+  font-family: @font;
+  font-size: 15px;
 }
+
 .panel .reseausociaux{
   text-decoration: none;
 }
 
+.panel p {
+  font-family: @font;
+  font-size: 16px;
+}
+
+
+@media all and (min-width:1500px) {
+.panel {
+height: 35%; }
+.panel p {
+  font-size: 25px;
+}
+}
+
+/*Boutoun reseausociaux panel*/
 .facebook {
   background-color:@facebook;
   color: white;
@@ -144,30 +187,37 @@ h2{
   margin-bottom: 7.6%;
 }
 
-#appbundle_post label {
-  width: 100%;
+/*Brouillons*/
+.draft {
+background-color:#D3D6DB;
 }
 
-#appbundle_post input {
-  text-align: center;
-  width: 50%;
-  margin-bottom: @marge;
+/*formulaire d'inscription et de connexions*/
+#appbundle_post label {
+ width: 100%;
+}
+
+#appbundle_post input {  text-align: center;
+ width: 50%;
+ margin-bottom: @marge;
 }
 
 #appbundle_post textarea {
-  text-align: center;
-  width: 50%;
-  resize: none;
-  margin-bottom: @marge;
+ text-align: center;
+ width: 50%;
+ height: 150px;
+ resize: none;
+ margin-bottom: @marge;
  }
 
+/*mofier les infos*/
  #fos_user_profile_form label {
-  width : 100%;
-}
+   width: 100%;
+ }
 
-#fos_user_profile_form input  {
-  width : 50%;
-  margin-bottom : @marge;  
+#fos_user_profile_form input {
+  width: 50%;
+  margin-bottom: @marge;
 }
 
 form {
@@ -175,7 +225,9 @@ form {
 }
 
 footer {
+  text-align: center;
   color: white;
+  position:fixed;
   bottom: 0;
   margin-top: @marge;
   padding:1%;

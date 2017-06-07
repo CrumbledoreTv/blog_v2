@@ -53,7 +53,14 @@ class Post
      */
     private $updateAt;
 
-    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="draft", type="string", nullable=true)
+     */
+    private $draft;
+
+
     /**
      * Get id
      *
@@ -176,5 +183,29 @@ class Post
     public function getUpdateAt()
     {
         return $this->updateAt;
+    }
+
+    /**
+     * Set draft
+     *
+     * @param string $draft
+     *
+     * @return Post
+     */
+    public function setDraft($draft)
+    {
+        $this->draft = $draft;
+
+        return $this;
+    }
+
+    /**
+     * Get draft
+     *
+     * @return string
+     */
+    public function getDraft()
+    {
+        return $this->draft;
     }
 }

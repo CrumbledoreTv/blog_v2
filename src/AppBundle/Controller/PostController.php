@@ -33,6 +33,25 @@ class PostController extends Controller
         ));
     }
 
+    /**
+     * Lists all post entities.
+     *
+     * @Route("/draft", name="post_draft")
+     * @Method("GET")
+     */
+    public function indexDraftAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $posts = $em->getRepository('AppBundle:Post')->findBy(
+                        array('draft' => 'Ajouter aux brouillons')
+                      );
+
+        return $this->render('post/draft.html.twig', array(
+            'posts' => $posts,
+        ));
+    }
+
     public function OrderAction()
     {
         $em = $this->getDoctrine()->getManager();
