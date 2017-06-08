@@ -34,7 +34,7 @@ class PostController extends Controller
     }
 
     /**
-     * Lists all post entities.
+     * Lists all draft post entities.
      *
      * @Route("/draft", name="post_draft")
      * @Method("GET")

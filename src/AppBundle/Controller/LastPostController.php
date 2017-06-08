@@ -26,7 +26,7 @@ class LastPostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $orderPosts = $em->getRepository('AppBundle:Post')->findBy(array(), array('id' => 'DESC'));
+        $orderPosts = $em->getRepository('AppBundle:Post')->findByDraft(array('Mettre en ligne'), array('id' => 'DESC'));
 
         return $this->render('home/index.html.twig', array(
             'orderPosts' => $orderPosts,
